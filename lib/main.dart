@@ -7,8 +7,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
-  Widget build (BuildContext context)
-  {
+  Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Laboratory №2',
       theme: ThemeData(
@@ -18,7 +17,8 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-class MyHomePage extends StatefulWidget{
+
+class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
@@ -27,7 +27,7 @@ class MyHomePage extends StatefulWidget{
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage>{
+class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -38,8 +38,8 @@ class _MyHomePageState extends State<MyHomePage>{
 
   void _decrementCounter() {
     setState(() {
-    _counter--;
-  });
+      _counter--;
+    });
   }
 
   @override
@@ -48,48 +48,37 @@ class _MyHomePageState extends State<MyHomePage>{
       appBar: AppBar(
         title: Text(widget.title),
         foregroundColor: Colors.deepPurple,
-        ),
+      ),
       body: Center(
         child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          const Text(
-            'You have pushed the button this many times:',
-        style: TextStyle(color: Colors.green,
-            fontSize: 26),
-          ),
-         Text(
-            '$_counter',
-            //style: Theme.of(context).textTheme.headline1,
-            style: const TextStyle(color: Colors.green,
-                fontSize: 26),
-          ),
-          Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                ElevatedButton(
-                  onPressed: _decrementCounter,
-                    child: const Text("-",
-                      style:
-                      TextStyle(color: Colors.black, fontSize: 22)),
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.red
-                  ),
-                ),
-                ElevatedButton(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'You have pushed the button this many times:',
+              style: TextStyle(color: Colors.green, fontSize: 26),
+            ),
+            Text(
+              '$_counter',
+              //style: Theme.of(context).textTheme.headline1,
+              style: const TextStyle(color: Colors.green, fontSize: 26),
+            ),
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+              ElevatedButton(
+                onPressed: _decrementCounter,
+                child: const Text("-",
+                    style: TextStyle(color: Colors.black, fontSize: 22)),
+                style: ElevatedButton.styleFrom(primary: Colors.red),
+              ),
+              ElevatedButton(
                   onPressed: _incrementCounter,
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.green
-                  ),
+                  style: ElevatedButton.styleFrom(primary: Colors.green),
                   child: const Text("+",
-                      style: TextStyle(color: Colors.black, fontSize: 22)
-                  )
-                )
-            ]
-          )
-        ],
+                      style: TextStyle(color: Colors.black, fontSize: 22)))
+            ])
+            //todo: отсутствует кнопка "Сбросить" для счетчика нажатий
+          ],
         ),
-        ),
+      ),
       // floatingActionButton: FloatingActionButton(
       //   onPressed: _incrementCounter,
       //   tooltip: 'Increment',
