@@ -42,6 +42,12 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _clearCounter() {
+    setState(() {
+      _counter = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,8 +80,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: ElevatedButton.styleFrom(primary: Colors.green),
                   child: const Text("+",
                       style: TextStyle(color: Colors.black, fontSize: 22)))
-            ])
+            ]),
             //todo: отсутствует кнопка "Сбросить" для счетчика нажатий
+            ElevatedButton(onPressed: _clearCounter,
+              child: const Text("Сбросить счетчик",
+                  style: TextStyle(color: Colors.black, fontSize: 18)),
+              style: ElevatedButton.styleFrom(primary: Colors.amber),),
           ],
         ),
       ),
